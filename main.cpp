@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 #include "include/Core.hpp"
+=======
+#include "include/Window.hpp"
+>>>>>>> Stashed changes
 
 int main(int ac, char **av)
 {

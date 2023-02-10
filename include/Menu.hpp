@@ -18,6 +18,8 @@ class Menu : public IScene {
         void draw(Window &win);
     protected:
     private:
+        sf::View _view;
+        std::pair<double, double> _click;
 };
 
 #endif /* !MENU_HPP_ */
