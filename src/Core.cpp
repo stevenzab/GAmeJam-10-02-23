@@ -27,7 +27,6 @@ void Core::loop()
         _m_chan->setMousePos(_win.getMousePosition());
         _win.clear();
         _m_chan->update();
-        checkInput();
         _m_chan->draw(_win);
         _win.setView(_m_chan->getView());
         _win.display();
