@@ -2,7 +2,9 @@
 #ifndef MENU_HPP_
 #define MENU_HPP_
 
+#include <memory>
 #include "IScene.hpp"
+#include "RessourceAllocator.hpp"
 
 class Menu : public IScene {
     public:

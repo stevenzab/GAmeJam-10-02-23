@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2022
-** B-YEP-410-PAR-4-1-zappy-flavien.thel
-** File description:
-** SceneManager
-*/
 
 #include "../include/SceneManager.hpp"
 
@@ -23,12 +17,6 @@ void SceneManager::addScene(std::shared_ptr<IScene> scene)
 void SceneManager::switchScene()
 {
     _scenes.pop();
-}
-
-void SceneManager::processInput(const std::string &e)
-{
-    if (_scenes.size() != 0)
-        _scenes.top()->parseServerInput(e);
 }
 
 void SceneManager::update()

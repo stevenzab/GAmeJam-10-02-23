@@ -2,7 +2,9 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
 
+#include <memory>
 #include "IScene.hpp"
+#include "RessourceAllocator.hpp"
 
 class Game : public IScene {
     public:

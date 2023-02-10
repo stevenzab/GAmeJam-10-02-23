@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2022
-** B-YEP-410-PAR-4-1-zappy-flavien.thel
-** File description:
-** SceneManager
-*/
-
 #ifndef SCENEMANAGER_HPP_
 #define SCENEMANAGER_HPP_
 
