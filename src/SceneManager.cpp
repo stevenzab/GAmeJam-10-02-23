@@ -38,10 +38,11 @@ void SceneManager::setMousePos(const std::pair<double, double> &vec)
 
 void SceneManager::manageEvent(Input i)
 {
-    _scenes.top()->eventManager(i);
+    if (_scenes.top()->eventManager(i))
+        switchScene();
 }
 
-// sf::View SceneManager::getView() const
-// {
-//     return _scenes.top()->getView();
-// }
+sf::View SceneManager::getView() const
+{
+    return _scenes.top()->getView();
+}

@@ -17,7 +17,6 @@ class SceneManager {
         void manageEvent(Input i);
         sf::View getView() const;
 
-        void processInput(const std::string &e);
         void update();
         void draw(Window &win);
         void setMousePos(const std::pair<double, double> &vec);

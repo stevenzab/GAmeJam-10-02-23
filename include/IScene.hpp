@@ -18,7 +18,7 @@ class IScene {
         virtual ~IScene() = default;
 
         virtual void update() = 0;
-        virtual void eventManager(Input n) = 0;
+        virtual bool eventManager(Input n) = 0;
         virtual sf::View getView() const = 0;
         virtual void setMouseClick(const std::pair<double, double> &vec) = 0;
         virtual void draw(Window &win) = 0;

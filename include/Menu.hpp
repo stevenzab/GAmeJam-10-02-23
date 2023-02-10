@@ -12,7 +12,7 @@ class Menu : public IScene {
         ~Menu();
 
         void update();
-        void eventManager(Input n);
+        bool eventManager(Input n);
         sf::View getView() const;
         void setMouseClick(const std::pair<double, double> &vec);
         void draw(Window &win);
@@ -20,6 +20,7 @@ class Menu : public IScene {
     private:
         sf::View _view;
         std::pair<double, double> _click;
+
 };
 
 #endif /* !MENU_HPP_ */

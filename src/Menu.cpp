@@ -21,11 +21,11 @@ void Menu::update()
     // update Position
 }
 
-void Menu::eventManager(Input n)
+bool Menu::eventManager(Input n)
 {
     switch (n) {
         default:
-            return;
+            return false;
     }
 }
 
