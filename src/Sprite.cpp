@@ -1,4 +1,4 @@
-#include "Sprite.hpp"
+#include "../include/Sprite.hpp"
 
 Sprite::Sprite(double x, double y) : _x(x), _y(y)
 {
