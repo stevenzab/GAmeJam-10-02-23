@@ -9,18 +9,34 @@
 #define SPRITE_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "RessourceAllocator.hpp"
+#include "Window.hpp"
+
 
 class Sprite {
     public:
-        Sprite();
+        Sprite(double x, double y);
         ~Sprite();
-        void Init_sprite();
+
+        void setSpriteScale(double x, double y);
+        void setSpritePosition(double x, double y);
+        void setSpriteRect(double left, double height, double width);
+        void changePosition(double x, double y);
+
+        void draw(Window &win) const;
+
+        void load(int id);
+        void load(const std::string &e);
+        void setTextureAllocator(std::shared_ptr<ResourceAllocator<sf::Texture>> allocator);
+        double getX() const;
+        double getY() const;
 
     protected:
+        std::shared_ptr<ResourceAllocator<sf::Texture>> _alloc;
+        sf::Sprite _sprite;
+        double _x;
+        double _y;
     private:
-        sf::IntRect _rect;
-        sf::Texture texture;
-        sf::Sprite sprite;
 };
 
 #endif /* !SPRITE_HPP_ */
