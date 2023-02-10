@@ -41,7 +41,7 @@ void SceneManager::manageEvent(Input i)
     _scenes.top()->eventManager(i);
 }
 
-sf::View SceneManager::getView() const
-{
-    return _scenes.top()->getView();
-}
+// sf::View SceneManager::getView() const
+// {
+//     return _scenes.top()->getView();
+// }

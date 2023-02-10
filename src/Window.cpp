@@ -5,7 +5,7 @@ Window::Window()
     _height = 1920;
     _width = 1080;
     _win.create(sf::VideoMode(_width, _height), "JumpGoku", sf::Style::Titlebar | sf::Style::Close);
-    _win.setFramerateLimit(10);
+    _win.setFramerateLimit(60);
     _status = true;
 }
 

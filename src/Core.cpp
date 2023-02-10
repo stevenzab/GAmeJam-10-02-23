@@ -7,7 +7,7 @@ Core::Core() : _win()
     _font = std::make_shared<ResourceAllocator<sf::Font>>();
     _alloc = std::make_shared<ResourceAllocator<sf::Texture>>();
     loadRessources();
-    _m_chan = std::make_unique<SceneManager>();
+    // _m_chan = std::make_unique<SceneManager>();
 //    _m_chan->addScene(std::make_shared<Map>(_alloc, _font));
 }
 
@@ -21,14 +21,14 @@ void Core::loadRessources()
 
 void Core::loop()
 {
-    _win.setView(_m_chan->getView());
+    // _win.setView(_m_chan->getView());
     while (_win.isOpen()) {
-        _m_chan->manageEvent(_win.manageEvent());
-        _m_chan->setMousePos(_win.getMousePosition());
+        // _m_chan->manageEvent(_win.manageEvent());
+        // _m_chan->setMousePos(_win.getMousePosition());
         _win.clear();
-        _m_chan->update();
-        _m_chan->draw(_win);
-        _win.setView(_m_chan->getView());
+        // _m_chan->update();
+        // _m_chan->draw(_win);
+        // _win.setView(_m_chan->getView());
         _win.display();
     }
 }
