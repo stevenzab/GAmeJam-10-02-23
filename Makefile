@@ -6,14 +6,14 @@
 ##
 
 SRC	=		main.cpp	\
-			Src/Sprite.cpp	\
-			Src/Window.cpp	\
+			src/Window.cpp	\
+			src/Sprite.cpp	\
 
 NAME	=	GameJam
 
 OBJ		=	$(SRC:.cpp=.o)
 
-INC		=	-I ./Include
+INC		=	-I./include
 
 RM		=	rm -f
 

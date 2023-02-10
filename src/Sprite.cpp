@@ -5,13 +5,13 @@
 ** Sprite
 */
 
-#include "../Include/Sprite.hpp"
+#include "../include/Sprite.hpp"
 
 Sprite::Sprite()
 {
-    if (!texture.loadFromFile("Assets/goku.png"))
+    if (!texture.loadFromFile("assets/goku.png"))
         return;
-    texture.loadFromFile("Assets/goku.png");
+    texture.loadFromFile("assets/goku.png");
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(10, 0, 50, 100));
     sprite.setPosition(100, 100);

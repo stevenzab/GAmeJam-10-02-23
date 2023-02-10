@@ -1,4 +1,4 @@
-#include "Include/Window.hpp"
+#include "include/Window.hpp"
 
 int main(int ac, char **av)
 {
