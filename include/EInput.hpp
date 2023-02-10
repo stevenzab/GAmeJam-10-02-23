@@ -6,6 +6,7 @@ enum Input {
     Esc,
     Space,
     Up,
+    Down,
     Left,
     Right,
     MouseLeft,

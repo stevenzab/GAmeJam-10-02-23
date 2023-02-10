@@ -1,4 +1,4 @@
-#include "include/Core.hpp"
+#include "../include/Core.hpp"
 #include <iostream>
 
 Core::Core() : _win()

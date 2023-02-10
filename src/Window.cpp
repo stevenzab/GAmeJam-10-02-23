@@ -1,4 +1,4 @@
-#include "include/Window.hpp"
+#include "../include/Window.hpp"
 
 Window::Window()
 {

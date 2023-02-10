@@ -8,6 +8,7 @@
 SRC	=		main.cpp	\
 			src/Core.cpp	\
 			src/Window.cpp	\
+			src/SceneManager.cpp	\
 			src/Sprite.cpp	\
 
 NAME	=	GameJam
