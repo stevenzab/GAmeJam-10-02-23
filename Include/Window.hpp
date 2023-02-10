@@ -18,6 +18,7 @@ class Window {
     protected:
     private:
         sf::RenderWindow window;
+        sf::Event event;
 
 };
 

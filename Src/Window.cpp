@@ -19,9 +19,7 @@ void Window::Init_window()
 {
     window.create(sf::VideoMode(1920, 1080), "My window");
     window.setFramerateLimit(60);
-    while (window.isOpen())
-    {
-        sf::Event event;
+    while (window.isOpen()) {
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
