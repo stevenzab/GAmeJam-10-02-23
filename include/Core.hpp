@@ -8,7 +8,7 @@
 #include "RessourceAllocator.hpp"
 #include "SceneManager.hpp"
 #include "Window.hpp"
-
+#include "Menu.hpp"
 class Core {
     public:
         Core();

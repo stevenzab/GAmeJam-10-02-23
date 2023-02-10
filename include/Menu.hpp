@@ -5,6 +5,7 @@
 #include <memory>
 #include "IScene.hpp"
 #include "RessourceAllocator.hpp"
+#include "Player.hpp"
 
 class Menu : public IScene {
     public:
@@ -20,6 +21,9 @@ class Menu : public IScene {
     private:
         sf::View _view;
         std::pair<double, double> _click;
+        Player _player;
+        std::shared_ptr<ResourceAllocator<sf::Texture>> _alloc;
+        std::shared_ptr<ResourceAllocator<sf::Font>> _font;
 
 };
 
