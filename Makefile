@@ -6,6 +6,7 @@
 ##
 
 SRC	=		main.cpp	\
+			Src/Sprite.cpp	\
 			Src/Window.cpp	\
 
 NAME	=	GameJam

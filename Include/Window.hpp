@@ -9,6 +9,7 @@
 #define WINDOW_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "Sprite.hpp"
 
 class Window {
     public:
