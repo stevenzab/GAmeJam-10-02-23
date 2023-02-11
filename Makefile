@@ -18,6 +18,7 @@ SRC	=		main.cpp	\
 			src/Button.cpp	\
 			src/Music.cpp	\
 			src/Sound.cpp	\
+			src/bat.cpp     \
 
 NAME	=	GameJam
 
