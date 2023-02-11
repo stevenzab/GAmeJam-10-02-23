@@ -12,11 +12,14 @@
 
 class Player : public Sprite {
     public:
-        Player() : Sprite(0, 0) {};
-        ~Player() {};
+        Player();
+        ~Player();
+        void update();
+        void moveRect();
 
     protected:
     private:
+        int count_frame;
 };
 
 #endif /* !PLAYER_HPP_ */
