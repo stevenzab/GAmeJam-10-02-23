@@ -13,7 +13,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
-    _player.setSpriteRect(80, 50, 80);
+    _player.setSpriteRect(20, 51, 80);
     _music.loadSound("dbz", "assets/music_dbz.ogg");
 }
 
