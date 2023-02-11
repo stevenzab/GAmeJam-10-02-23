@@ -6,7 +6,6 @@
 ##
 
 SRC	=		main.cpp	\
-			src/Sprite.cpp	\
 			src/Background.cpp	\
 			src/Core.cpp	\
 			src/Window.cpp	\
