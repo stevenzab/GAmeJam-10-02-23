@@ -15,6 +15,8 @@ SRC	=		main.cpp	\
 			src/Sprite.cpp	\
 			src/MenuBackground.cpp	\
 			src/Button.cpp	\
+			src/Music.cpp	\
+			src/Sound.cpp	\
 
 NAME	=	GameJam
 

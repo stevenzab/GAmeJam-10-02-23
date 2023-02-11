@@ -7,6 +7,8 @@
 #include "RessourceAllocator.hpp"
 #include "Button.hpp"
 #include "MenuBackground.hpp"
+#include "Music.hpp"
+#include "Sound.hpp"
 
 class Menu : public IScene {
     public:
@@ -29,6 +31,8 @@ class Menu : public IScene {
         sf::Text _text;
         sf::Vector2f _view_size;
         Button _play;
+        Music _music;
+        Sound _sound;
 };
 
 #endif /* !MENU_HPP_ */

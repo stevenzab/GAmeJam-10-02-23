@@ -8,16 +8,18 @@
 #include "../include/Game.hpp"
 
 
-Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font)
+Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font), _music(), _sound()
 {
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
     _player.setSpriteRect(80, 50, 80);
+    _music.loadSound("dbz", "assets/music_dbz.ogg");
 }
 
 Game::~Game()
 {
+    _music.stopSound("dbz", "assets/music_dbz.ogg");
 }
 
 void Game::update()
@@ -60,4 +62,7 @@ void Game::draw(Window &win)
 {
     //draw stuff ob window
     _player.draw(win);
+
+    _music.playSound("dbz", "assets/music_dbz.ogg");
+    _music.setLoop("dbz");
 }
