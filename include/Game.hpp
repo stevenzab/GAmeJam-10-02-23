@@ -6,6 +6,8 @@
 #include "IScene.hpp"
 #include "RessourceAllocator.hpp"
 #include "Player.hpp"
+#include "Music.hpp"
+#include "Sound.hpp"
 
 class Game : public IScene {
     public:
@@ -25,6 +27,8 @@ class Game : public IScene {
         std::pair<double, double> _click;
         std::shared_ptr<ResourceAllocator<sf::Texture>> _alloc;
         std::shared_ptr<ResourceAllocator<sf::Font>> _font;
+        Music _music;
+        Sound _sound;
 };
 
 #endif /* !GAME_HPP_ */

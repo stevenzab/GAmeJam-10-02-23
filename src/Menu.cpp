@@ -7,7 +7,7 @@
 
 #include "../include/Menu.hpp"
 
-Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _alloc(alloc), _font(font), _play(835.25, 500)
+Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _alloc(alloc), _font(font), _play(835.25, 500), _music(), _sound()
 {
     sf::Vector2f view_center = {1920 / 2, 1080 / 2};
     _view_size = {960.0, 540.0};
@@ -22,10 +22,12 @@ Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _text.setFillColor(sf::Color::White);
     _play.setTextureAllocator(_alloc);
     _play.load("Play");
+    _music.loadSound("skfk", "assets/shukufuku.ogg");
 }
 
 Menu::~Menu()
 {
+    _music.stopSound("shfk", "assets/shukufuku.ogg");
 }
 
 void Menu::update()
@@ -55,6 +57,8 @@ void Menu::setMouseClick(const std::pair<double, double> &vec)
 
 void Menu::draw(Window &win)
 {
+    _music.playSound("skfk", "assets/shukufuku.ogg");
+    _music.setLoop("skfk");
     _play.draw(win);
     win.draw(_text);
 //    for (auto &e : _sprites)
