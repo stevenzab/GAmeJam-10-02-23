@@ -6,6 +6,7 @@
 ##
 
 SRC	=		main.cpp	\
+			src/Background.cpp	\
 			src/Core.cpp	\
 			src/Window.cpp	\
 			src/SceneManager.cpp	\
@@ -17,6 +18,7 @@ SRC	=		main.cpp	\
 			src/Button.cpp	\
 			src/Music.cpp	\
 			src/Sound.cpp	\
+			src/bat.cpp     \
 
 NAME	=	GameJam
 

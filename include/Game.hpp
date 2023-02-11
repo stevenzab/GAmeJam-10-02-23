@@ -8,6 +8,8 @@
 #include "Player.hpp"
 #include "Music.hpp"
 #include "Sound.hpp"
+#include "Background.hpp"
+#include "bat.hpp"
 
 class Game : public IScene {
     public:
@@ -22,7 +24,9 @@ class Game : public IScene {
 
     protected:
     private:
+        Bat _bat;
         Player _player;
+        Background _background;
         sf::View _view;
         std::pair<double, double> _click;
         std::shared_ptr<ResourceAllocator<sf::Texture>> _alloc;
