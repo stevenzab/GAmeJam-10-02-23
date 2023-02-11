@@ -12,8 +12,8 @@ Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
 {
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
-    _player.setSpritePosition(0, 0);
-    _player.setSpriteRect(10, 50, 80);
+    _player.setSpritePosition(500, 500);
+    _player.setSpriteRect(80, 50, 80);
 }
 
 Menu::~Menu()
@@ -23,6 +23,7 @@ Menu::~Menu()
 void Menu::update()
 {
     // update Position
+    _player.moveRect();
 }
 
 bool Menu::eventManager(Input n)
