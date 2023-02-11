@@ -7,13 +7,21 @@
 
 #include "../include/Menu.hpp"
 
-
-Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font)
+Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _alloc(alloc), _font(font), _play(835.25, 500)
 {
-    _player.setTextureAllocator(_alloc);
-    _player.load("assets/goku.png");
-    _player.setSpritePosition(0, 0);
-    _player.setSpriteRect(80, 50, 80);
+    sf::Vector2f view_center = {1920 / 2, 1080 / 2};
+    _view_size = {960.0, 540.0};
+    _view.setCenter(view_center);
+    _view.setSize(_view_size);
+    _view.zoom(2);
+    std::shared_ptr<sf::Font> text = _font->Get("DungeonFont");
+    _text.setString("JumpGoku");
+    _text.setFont(*text);
+    _text.setCharacterSize(160);
+    _text.setPosition(650, 30);
+    _text.setFillColor(sf::Color::White);
+    _play.setTextureAllocator(_alloc);
+    _play.load("Play");
 }
 
 Menu::~Menu()
@@ -23,24 +31,13 @@ Menu::~Menu()
 void Menu::update()
 {
     // update Position
-    _player.moveRect();
 }
 
 bool Menu::eventManager(Input n)
 {
     switch (n) {
-        case Input::Up:
-            _player.jump();
-            std::cout << "jump" << std::endl;
-            return false;
-        case Input::Left:
-            _player.left();
-            std::cout << "left" << std::endl;
-            return false;
-        case Input::Right:
-            _player.right();
-            std::cout << "right" << std::endl;
-            return false;
+        case MouseLeft:
+            return _play.isClicked(_click);
         default:
             return false;
     }
@@ -58,6 +55,9 @@ void Menu::setMouseClick(const std::pair<double, double> &vec)
 
 void Menu::draw(Window &win)
 {
+    _play.draw(win);
+    win.draw(_text);
+//    for (auto &e : _sprites)
+//        e.draw(win);
     //draw stuff ob window
-    _player.draw(win);
 }
