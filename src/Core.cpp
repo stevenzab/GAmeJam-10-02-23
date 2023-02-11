@@ -9,6 +9,7 @@ Core::Core() : _win()
     loadRessources();
     _m_chan = std::make_unique<SceneManager>();
     _m_chan->addScene(std::make_shared<Game>(_alloc, _font));
+    _m_chan->addScene(std::make_shared<Menu>(_alloc, _font));
 }
 
 Core::~Core()
@@ -18,6 +19,8 @@ Core::~Core()
 void Core::loadRessources()
 {
     _alloc->Add("assets/goku.png");
+    _alloc->Add("assets/Play.png");
+    _font->Add("assets/DungeonFont.ttf");
 }
 
 void Core::loop()

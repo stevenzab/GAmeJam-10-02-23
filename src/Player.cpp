@@ -7,7 +7,7 @@
 
 #include "../include/Player.hpp"
 
-Player::Player() : Sprite(0, 0)
+Player::Player() : Sprite(500, 500)
 {
     count_frame = 0;
     changeX = 0;
@@ -41,12 +41,10 @@ void Player::jump()
 
 void Player::left()
 {
-    changeX -= 15;
-    changePosition(changeX, changeY);
+    changePosition(getX() - 15, getY());
 }
 
 void Player::right()
 {
-    changeX += 15;
-    changePosition(changeX, changeY);
+    changePosition(getX() + 15, getY());
 }

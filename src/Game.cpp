@@ -12,7 +12,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
 {
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
-    _player.setSpritePosition(0, 0);
+    _player.setSpritePosition(500, 505);
     _player.setSpriteRect(80, 50, 80);
 }
 
