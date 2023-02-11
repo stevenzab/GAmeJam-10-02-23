@@ -1,8 +1,13 @@
-#include "Include/Window.hpp"
+#include "include/Core.hpp"
 
 int main(int ac, char **av)
 {
-    Window window;
-    window.Init_window();
+    Core c;
+    try {
+        c.loop();
+    } catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        return 84;
+    }
     return 0;
 }
