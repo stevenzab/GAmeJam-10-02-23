@@ -8,8 +8,12 @@
 #include "../include/Game.hpp"
 
 
-Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font)
+Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font)
 {
+    _player.setTextureAllocator(_alloc);
+    _player.load("assets/goku.png");
+    _player.setSpritePosition(500, 505);
+    _player.setSpriteRect(80, 50, 80);
 }
 
 Game::~Game()
@@ -19,6 +23,7 @@ Game::~Game()
 void Game::update()
 {
     // update Position
+    _player.moveRect();
 }
 
 bool Game::eventManager(Input n)
@@ -54,4 +59,5 @@ void Game::setMouseClick(const std::pair<double, double> &vec)
 void Game::draw(Window &win)
 {
     //draw stuff ob window
+    _player.draw(win);
 }
