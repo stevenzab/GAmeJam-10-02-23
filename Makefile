@@ -14,8 +14,8 @@ SRC	=		main.cpp	\
 			src/Menu.cpp	\
 			src/Player.cpp	\
 			src/Game.cpp	\
-			src/Sprite.cpp	\
 			src/Button.cpp	\
+			src/bat.cpp     \
 
 NAME	=	GameJam
 
