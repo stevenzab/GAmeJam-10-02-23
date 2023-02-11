@@ -6,6 +6,9 @@
 #include "IScene.hpp"
 #include "RessourceAllocator.hpp"
 #include "Button.hpp"
+#include "MenuBackground.hpp"
+#include "Music.hpp"
+#include "Sound.hpp"
 
 class Menu : public IScene {
     public:
@@ -20,6 +23,7 @@ class Menu : public IScene {
     protected:
     private:
         sf::View _view;
+        MenuBackground _background;
         std::pair<double, double> _click;
         std::shared_ptr<ResourceAllocator<sf::Texture>> _alloc;
         std::shared_ptr<ResourceAllocator<sf::Font>> _font;
@@ -27,6 +31,8 @@ class Menu : public IScene {
         sf::Text _text;
         sf::Vector2f _view_size;
         Button _play;
+        Music _music;
+        Sound _sound;
 };
 
 #endif /* !MENU_HPP_ */
