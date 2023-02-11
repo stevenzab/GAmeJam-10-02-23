@@ -6,14 +6,11 @@
 ##
 
 SRC	=		main.cpp	\
-<<<<<<< Updated upstream
 			src/Core.cpp	\
 			src/Window.cpp	\
 			src/SceneManager.cpp	\
+			src/Menu.cpp	\
 			src/Sprite.cpp	\
-=======
-			src/Window.cpp	\
->>>>>>> Stashed changes
 
 NAME	=	GameJam
 

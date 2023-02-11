@@ -5,11 +5,15 @@
 ** Menu
 */
 
-#include "Menu.hpp"
+#include "../include/Menu.hpp"
 
 
-Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font)
+Menu::Menu(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font)
 {
+    _player.setTextureAllocator(_alloc);
+    _player.load("assets/goku.png");
+    _player.setSpritePosition(0, 0);
+    _player.setSpriteRect(10, 50, 80);
 }
 
 Menu::~Menu()
@@ -42,4 +46,5 @@ void Menu::setMouseClick(const std::pair<double, double> &vec)
 void Menu::draw(Window &win)
 {
     //draw stuff ob window
+    _player.draw(win);
 }
