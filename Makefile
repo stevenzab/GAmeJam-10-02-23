@@ -8,19 +8,20 @@
 SRC	=		main.cpp	\
 			Src/Sprite.cpp	\
 			Src/Window.cpp	\
+			Src/Background.cpp	\
 
 NAME	=	GameJam
 
 OBJ		=	$(SRC:.cpp=.o)
 
-INC		=	-I ./Include
+INC		=	-I ./Include 
 
 RM		=	rm -f
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	g++ -o $(NAME) $(SRC) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(INC)
+	g++ -o $(NAME) $(SRC) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(INC) 
 
 clean:
 	$(RM) $(OBJ)

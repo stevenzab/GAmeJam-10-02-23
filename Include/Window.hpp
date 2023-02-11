@@ -10,6 +10,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Sprite.hpp"
+#include "Background.hpp"
 
 class Window {
     public:
