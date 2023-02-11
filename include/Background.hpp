@@ -9,12 +9,13 @@
 #define BACKGOUND_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "Sprite.hpp"
 
-class Background {
+class Background : public Sprite {
     public:
         Background();
         ~Background();
-        void Init_background();
+   //     void Init_background();
     protected:
     private:
        
