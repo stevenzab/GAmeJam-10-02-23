@@ -20,6 +20,7 @@ void Core::loadRessources()
 {
     _alloc->Add("assets/goku.png");
     _alloc->Add("assets/Play.png");
+    _alloc->Add("assets/background.png");
     _font->Add("assets/DungeonFont.ttf");
 }
 
