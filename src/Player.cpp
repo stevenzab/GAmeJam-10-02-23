@@ -41,12 +41,12 @@ void Player::jump()
 
 void Player::left()
 {
-    changeX += 5;
+    changeX -= 15;
     changePosition(changeX, changeY);
 }
 
 void Player::right()
 {
-    changeY += 5;
+    changeX += 15;
     changePosition(changeX, changeY);
 }

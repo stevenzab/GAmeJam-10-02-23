@@ -8,7 +8,7 @@ Core::Core() : _win()
     _alloc = std::make_shared<ResourceAllocator<sf::Texture>>();
     loadRessources();
     _m_chan = std::make_unique<SceneManager>();
-    _m_chan->addScene(std::make_shared<Menu>(_alloc, _font));
+    _m_chan->addScene(std::make_shared<Game>(_alloc, _font));
 }
 
 Core::~Core()

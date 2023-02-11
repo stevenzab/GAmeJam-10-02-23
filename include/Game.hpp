@@ -23,6 +23,8 @@ class Game : public IScene {
         Player _player;
         sf::View _view;
         std::pair<double, double> _click;
+        std::shared_ptr<ResourceAllocator<sf::Texture>> _alloc;
+        std::shared_ptr<ResourceAllocator<sf::Font>> _font;
 };
 
 #endif /* !GAME_HPP_ */
