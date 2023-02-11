@@ -24,6 +24,18 @@ void Game::update()
 bool Game::eventManager(Input n)
 {
     switch (n) {
+        case Input::Up:
+            _player.jump();
+            std::cout << "jump" << std::endl;
+            return false;
+        case Input::Left:
+            _player.left();
+            std::cout << "left" << std::endl;
+            return false;
+        case Input::Right:
+            _player.right();
+            std::cout << "right" << std::endl;
+            return false;
         default:
             return false;
     }

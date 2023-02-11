@@ -10,6 +10,8 @@
 Player::Player() : Sprite(0, 0)
 {
     count_frame = 0;
+    changeX = 0;
+    changeY = 0;
 }
 
 Player::~Player()
@@ -30,5 +32,21 @@ void Player::moveRect()
         count_frame++;
     setSpriteRect(count_frame * 50.8, 51, 80);
     _sprite.setTextureRect(sf::IntRect(count_frame * 50.8, 0, 51, 80));
+}
 
+void Player::jump()
+{
+
+}
+
+void Player::left()
+{
+    changeX += 5;
+    changePosition(changeX, changeY);
+}
+
+void Player::right()
+{
+    changeY += 5;
+    changePosition(changeX, changeY);
 }

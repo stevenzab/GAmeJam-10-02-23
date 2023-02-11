@@ -11,6 +11,7 @@ SRC	=		main.cpp	\
 			src/SceneManager.cpp	\
 			src/Menu.cpp	\
 			src/Player.cpp	\
+			src/Game.cpp	\
 			src/Sprite.cpp	\
 
 NAME	=	GameJam

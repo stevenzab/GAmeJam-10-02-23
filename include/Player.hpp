@@ -16,10 +16,15 @@ class Player : public Sprite {
         ~Player();
         void update();
         void moveRect();
+        void jump();
+        void left();
+        void right();
 
     protected:
     private:
         int count_frame;
+        int changeX;
+        int changeY;
 };
 
 #endif /* !PLAYER_HPP_ */

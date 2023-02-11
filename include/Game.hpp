@@ -5,6 +5,7 @@
 #include <memory>
 #include "IScene.hpp"
 #include "RessourceAllocator.hpp"
+#include "Player.hpp"
 
 class Game : public IScene {
     public:
@@ -19,6 +20,7 @@ class Game : public IScene {
 
     protected:
     private:
+        Player _player;
         sf::View _view;
         std::pair<double, double> _click;
 };

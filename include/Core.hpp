@@ -9,6 +9,8 @@
 #include "SceneManager.hpp"
 #include "Window.hpp"
 #include "Menu.hpp"
+#include "Game.hpp"
+
 class Core {
     public:
         Core();
