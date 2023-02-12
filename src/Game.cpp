@@ -129,6 +129,7 @@ bool Game::eventManager(Input n)
             return false;
         case Input::Space:
             _space++;
+            _bat.erase(_bat.begin());
             return false;
 //        case Input::Down:
 //            _player.down();
@@ -153,11 +154,12 @@ void Game::draw(Window &win)
 {
     //draw stuff ob window
     _background.draw(win);
+   for (auto &e: _bat) {
+       e.draw(win);
+   }
     for (auto &e: _life)
         e.draw(win);
-//    for (auto &e: _bat) {
-//        e.draw(win);
-//    }
+
     _player.draw(win);
 
     for (auto &e : _layer)
@@ -202,7 +204,7 @@ void Game::CheckLoseLife()
 {
     for (auto &e: _bat) {
         if (e.getShape().getGlobalBounds().intersects(_player.getShape().getGlobalBounds())) {
-        std::cout << "HIT !" << std::endl;   // game.gameOver(); // lancer le game_over
+        std::cout << "HIT !" << std::endl;
         }
     }
 }

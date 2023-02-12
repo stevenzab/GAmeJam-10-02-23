@@ -15,6 +15,7 @@ Player::Player() : Sprite(500, 300)
     changeY = 0;
     shape.setSize(sf::Vector2f(51,51));
     shape.setPosition(getX(),getY());
+ //   shape.setFillColor(sf::Color::Red);
 }
 
 Player::~Player()

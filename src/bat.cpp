@@ -14,6 +14,7 @@ Bat::Bat(int x, int y) : Sprite(x, y)
     changeY = 0;
     shape.setSize(sf::Vector2f(0.2,0.2));
     shape.setPosition(getX(),getY());
+    //shape.setFillColor(sf::Color::Green);
 }
 
 Bat::~Bat()
