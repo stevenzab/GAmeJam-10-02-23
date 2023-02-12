@@ -40,6 +40,7 @@ class Game : public IScene {
         std::shared_ptr<ResourceAllocator<sf::Font>> _font;
         Music _music;
         Sound _sound;
+        sf::Text _score;
         bool _ispause;
         int _health;
         int stackHealth;
