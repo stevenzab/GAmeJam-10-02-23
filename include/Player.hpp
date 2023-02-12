@@ -20,12 +20,15 @@ class Player : public Sprite {
         void left();
         void right();
         void down();
+        void setFloor(int floor, int y);
+        int getFloor() const;
 
     protected:
     private:
         int count_frame;
         int changeX;
         int changeY;
+        int _floor;
 };
 
 #endif /* !PLAYER_HPP_ */

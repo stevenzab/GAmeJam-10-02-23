@@ -27,7 +27,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
         e.setSpriteScale(0.3, 0.3);
         e.load("assets/LIFE1.png");
     }
-    for (int i = 0; i != 1; i++) {
+    for (int i = 0; i != 50; i++) {
         _layer.push_back(Layer(i));
         _layer[i].setTextureAllocator(_alloc);
     }
@@ -45,7 +45,6 @@ void Game::CreateBat()
             _bat.erase(_bat.begin() + i);
         }
     }
-
 
     _bat.push_back(Bat(1000, rand() % 1000 + 1));
     for (auto &e: _bat) {
@@ -67,16 +66,28 @@ void Game::update()
     _player.moveRect();
     CreateBat();
     CheckLoseLife();
+    for (auto &e : _layer) {
+        if (e.getLayerNum() == _player.getFloor()) {
+            std::pair<double, double> hole = e.getHole();
+            int x = _player.getX();
+            std::cout << hole.first << " " << x << " " <<  hole.second << std::endl;
+            if (x > hole.first && x < hole.second)
+                _player.setFloor(e.getLayerNum() + 1, e.getLayerY() + 5);
+            else
+                _player.setFloor(e.getLayerNum(), e.getLayerY());
+        }
+        e.update();
+    }
 }
 
 bool Game::eventManager(Input n)
 {
     CheckLoseLife();
     switch (n) {
-        case Input::Up:
-            _player.up();
-            std::cout << "jump" << std::endl;
-            return false;
+//        case Input::Up:
+//            _player.up();
+//            std::cout << "jump" << std::endl;
+//            return false;
         case Input::Left:
             _player.left();
             std::cout << "left" << std::endl;
@@ -85,10 +96,10 @@ bool Game::eventManager(Input n)
             _player.right();
             std::cout << "right" << std::endl;
             return false;
-        case Input::Down:
-            _player.down();
-            std::cout << "down" << std::endl;
-            return false;
+//        case Input::Down:
+//            _player.down();
+//            std::cout << "down" << std::endl;
+//            return false;
         default:
             return false;
     }
