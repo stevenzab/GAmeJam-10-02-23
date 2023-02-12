@@ -10,6 +10,7 @@
 #include "Sound.hpp"
 #include "Background.hpp"
 #include "bat.hpp"
+#include "Life.hpp"
 
 class Game : public IScene {
     public:
@@ -21,10 +22,12 @@ class Game : public IScene {
         sf::View getView() const;
         void setMouseClick(const std::pair<double, double> &vec);
         void draw(Window &win);
+        void CreateBat();
 
     protected:
     private:
-        Bat _bat;
+        std::vector<Bat> _bat;
+        std::vector<Life> _life;
         Player _player;
         Background _background;
         sf::View _view;

@@ -23,6 +23,7 @@ void Core::loadRessources()
     _alloc->Add("assets/background.png");
     _alloc->Add("assets/Gbackground.png");
     _alloc->Add("assets/bat.png");
+    _alloc->Add("assets/LIFE1.png");
     _font->Add("assets/DungeonFont.ttf");
 }
 

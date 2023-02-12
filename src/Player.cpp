@@ -7,7 +7,7 @@
 
 #include "../include/Player.hpp"
 
-Player::Player() : Sprite(500, 500)
+Player::Player() : Sprite(500, 900)
 {
     count_frame = 0;
     changeX = 0;
@@ -30,13 +30,13 @@ void Player::moveRect()
         count_frame = 0;
     else
         count_frame++;
-    setSpriteRect(count_frame * 50.8, 51, 80);
-    _sprite.setTextureRect(sf::IntRect(count_frame * 50.8, 0, 51, 80));
+    setSpriteRect(count_frame * 50, 51, 80);
+    _sprite.setTextureRect(sf::IntRect(count_frame * 50, 0, 51, 80));
 }
 
-void Player::jump()
+void Player::up()
 {
-
+    changePosition(getX(), getY() - 15);
 }
 
 void Player::left()
@@ -47,4 +47,9 @@ void Player::left()
 void Player::right()
 {
     changePosition(getX() + 15, getY());
+}
+
+void Player::down()
+{
+    changePosition(getX(), getY() + 15);
 }
