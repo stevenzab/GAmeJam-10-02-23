@@ -3,6 +3,7 @@
 #define GAME_HPP_
 
 #include <memory>
+#include <chrono>
 #include "IScene.hpp"
 #include "RessourceAllocator.hpp"
 #include "Player.hpp"
@@ -47,6 +48,9 @@ class Game : public IScene {
         int stackHealth;
         bool _bossBattle;
         Panel _panel;
+        int _space;
+        sf::Text _spam;
+        std::chrono::time_point<std::chrono::steady_clock> _start;
 };
 
 #endif /* !GAME_HPP_ */

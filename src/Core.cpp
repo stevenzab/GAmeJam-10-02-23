@@ -31,6 +31,7 @@ void Core::loadRessources()
     _alloc->Add("assets/void.png");
     _alloc->Add("assets/panel.png");
     _alloc->Add("assets/Wizard_idle.png");
+    _alloc->Add("assets/goku_kameha.png");
     _font->Add("assets/DungeonFont.ttf");
 }
 
