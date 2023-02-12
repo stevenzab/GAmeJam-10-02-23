@@ -25,6 +25,10 @@ void Core::loadRessources()
     _alloc->Add("assets/bat.png");
     _alloc->Add("assets/LIFE1.png");
     _alloc->Add("assets/LIFE0.png");
+    _alloc->Add("assets/platformLeft.png");
+    _alloc->Add("assets/platformRight.png");
+    _alloc->Add("assets/platformMid.png");
+    _alloc->Add("assets/void.png");
     _font->Add("assets/DungeonFont.ttf");
 }
 
