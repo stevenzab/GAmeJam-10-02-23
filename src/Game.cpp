@@ -27,7 +27,6 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
         e.setSpriteScale(0.3, 0.3);
         e.load("assets/LIFE1.png");
     }
-
 }
 
 Game::~Game()
@@ -44,7 +43,7 @@ void Game::CreateBat()
     }
 
 
-    _bat.push_back(Bat(500, rand() % 500 + 1));
+    _bat.push_back(Bat(1000, rand() % 1000 + 1));
     for (auto &e: _bat) {
         e.setTextureAllocator(_alloc);
         e.load("assets/bat.png");
@@ -63,10 +62,12 @@ void Game::update()
     }
     _player.moveRect();
     CreateBat();
+    CheckLoseLife();
 }
 
 bool Game::eventManager(Input n)
 {
+    CheckLoseLife();
     switch (n) {
         case Input::Up:
             _player.up();
@@ -113,4 +114,29 @@ void Game::draw(Window &win)
 
     _music.playSound("dbz", "assets/music_dbz.ogg");
     _music.setLoop("dbz");
+}
+
+void Game::LooseLife()
+{
+    stackHealth = 0;
+    for (auto &e: _life) {
+        stackHealth += e.GetHealth();
+    }
+    if (stackHealth == 0)
+        std::cout << "You lose" << std::endl;
+    for (auto &e: _life) {
+        if (e.GetHealth() == 1) {
+            e.LoseLife();
+            e.load("assets/LIFE0.png");
+            break;
+        }
+    }
+}
+
+void Game::CheckLoseLife()
+{
+    for (auto &e: _bat) {
+        if (e.CheckHitBox(_player.getX(), _player.getY()))
+            LooseLife();
+    }
 }

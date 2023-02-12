@@ -9,8 +9,19 @@
 
 Life::Life(int x, int y) : Sprite(x, y)
 {
+    _health = 1;
 }
 
 Life::~Life()
 {
+}
+
+int Life::GetHealth()
+{
+    return _health;
+}
+
+void Life::LoseLife()
+{
+    _health--;
 }

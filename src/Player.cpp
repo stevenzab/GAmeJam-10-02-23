@@ -36,20 +36,20 @@ void Player::moveRect()
 
 void Player::up()
 {
-    changePosition(getX(), getY() - 15);
+    changePosition(getX(), getY() - 40);
 }
 
 void Player::left()
 {
-    changePosition(getX() - 15, getY());
+    changePosition(getX() - 40, getY());
 }
 
 void Player::right()
 {
-    changePosition(getX() + 15, getY());
+    changePosition(getX() + 40, getY());
 }
 
 void Player::down()
 {
-    changePosition(getX(), getY() + 15);
+    changePosition(getX(), getY() + 40);
 }
