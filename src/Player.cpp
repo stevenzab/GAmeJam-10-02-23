@@ -34,9 +34,9 @@ void Player::moveRect()
     _sprite.setTextureRect(sf::IntRect(count_frame * 50, 0, 51, 80));
 }
 
-void Player::jump()
+void Player::up()
 {
-
+    changePosition(getX(), getY() - 15);
 }
 
 void Player::left()
@@ -47,4 +47,9 @@ void Player::left()
 void Player::right()
 {
     changePosition(getX() + 15, getY());
+}
+
+void Player::down()
+{
+    changePosition(getX(), getY() + 15);
 }

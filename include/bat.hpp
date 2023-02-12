@@ -12,10 +12,11 @@
 
 class Bat : public Sprite {
     public:
-        Bat();
+        Bat(int x, int y);
         ~Bat();
         void update();
         void moveRect();
+        bool CheckHitBox(int x, int y);
 
     protected:
     private:
