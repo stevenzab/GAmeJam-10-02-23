@@ -11,6 +11,7 @@
 #include "Background.hpp"
 #include "bat.hpp"
 #include "Life.hpp"
+#include "Layer.hpp"
 
 class Game : public IScene {
     public:
@@ -30,6 +31,7 @@ class Game : public IScene {
     private:
         std::vector<Bat> _bat;
         std::vector<Life> _life;
+        std::vector<Layer> _layer;
         Player _player;
         Background _background;
         sf::View _view;

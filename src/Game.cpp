@@ -10,6 +10,7 @@
 
 Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font), _music(), _sound(), _life()
 {
+    srand(time(NULL));
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
@@ -18,7 +19,6 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _background.setTextureAllocator(_alloc);
     _background.load("assets/Gbackground.png");
     _background.setSpritePosition(-600,0);
-    srand(time(NULL));
     _life.push_back(Life(800, 10));
     _life.push_back(Life(850, 10));
     _life.push_back(Life(900, 10));
@@ -26,6 +26,10 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
         e.setTextureAllocator(_alloc);
         e.setSpriteScale(0.3, 0.3);
         e.load("assets/LIFE1.png");
+    }
+    for (int i = 0; i != 50; i++) {
+        _layer.push_back(Layer(i));
+        _layer[i].setTextureAllocator(_alloc);
     }
 }
 
@@ -41,7 +45,6 @@ void Game::CreateBat()
             _bat.erase(_bat.begin() + i);
         }
     }
-
 
     _bat.push_back(Bat(1000, rand() % 1000 + 1));
     for (auto &e: _bat) {
@@ -63,16 +66,28 @@ void Game::update()
     _player.moveRect();
     CreateBat();
     CheckLoseLife();
+    for (auto &e : _layer) {
+        if (e.getLayerNum() == _player.getFloor()) {
+            std::pair<double, double> hole = e.getHole();
+            int x = _player.getX();
+            std::cout << hole.first << " " << x << " " <<  hole.second << std::endl;
+            if (x > hole.first && x < hole.second)
+                _player.setFloor(e.getLayerNum() + 1, e.getLayerY() + 5);
+            else
+                _player.setFloor(e.getLayerNum(), e.getLayerY());
+        }
+        e.update();
+    }
 }
 
 bool Game::eventManager(Input n)
 {
     CheckLoseLife();
     switch (n) {
-        case Input::Up:
-            _player.up();
-            std::cout << "jump" << std::endl;
-            return false;
+//        case Input::Up:
+//            _player.up();
+//            std::cout << "jump" << std::endl;
+//            return false;
         case Input::Left:
             _player.left();
             std::cout << "left" << std::endl;
@@ -81,10 +96,10 @@ bool Game::eventManager(Input n)
             _player.right();
             std::cout << "right" << std::endl;
             return false;
-        case Input::Down:
-            _player.down();
-            std::cout << "down" << std::endl;
-            return false;
+//        case Input::Down:
+//            _player.down();
+//            std::cout << "down" << std::endl;
+//            return false;
         default:
             return false;
     }
@@ -104,14 +119,17 @@ void Game::draw(Window &win)
 {
     //draw stuff ob window
     _background.draw(win);
-    for (auto &e: _bat) {
-        e.draw(win);
-    }
+//    for (auto &e: _bat) {
+//        e.draw(win);
+//    }
     _player.draw(win);
-    for (auto &e: _life) {
+//    for (auto &e: _life) {
+//        e.draw(win);
+//    }
+
+    for (auto &e : _layer) {
         e.draw(win);
     }
-
     _music.playSound("dbz", "assets/music_dbz.ogg");
     _music.setLoop("dbz");
 }
