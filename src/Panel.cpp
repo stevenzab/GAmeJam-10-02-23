@@ -7,7 +7,7 @@
 
 #include "../include/Panel.hpp"
 
-Panel::Panel() : Sprite(0, 800), _juan(650, 500)
+Panel::Panel() : Sprite(0, 800), _juan(650, 500), _close(false)
 {
     setSpriteScale(2.1, 2.1);
 }
@@ -42,10 +42,22 @@ void Panel::setFontAllocator(std::shared_ptr<ResourceAllocator<sf::Font>> font)
     _juan.setSpriteRect(0, 35, 33);
 }
 
+void Panel::close()
+{
+    _close = true;
+}
+
+bool Panel::checkClosed() const
+{
+    return _close;
+}
+
 void Panel::write(Window &win)
 {
-    win.draw(_name);
-    win.draw(_text);
-    win.draw(_text1);
-    _juan.draw(win);
+    if (!_close) {
+        win.draw(_name);
+        win.draw(_text);
+        win.draw(_text1);
+        _juan.draw(win);
+    }
 }

@@ -8,14 +8,14 @@
 #include "../include/Game.hpp"
 
 
-Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font), _music(), _sound(), _life()
+Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_ptr<ResourceAllocator<sf::Font>> font) : _player(), _alloc(alloc), _font(font), _music(), _sound(), _life(), _space(0)
 {
     srand(time(NULL));
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
-    _player.setSpriteRect(0, 51, 80);
-    _music.loadSound("dbz", "assets/ost.ogg");
+    _player.setSpriteRect(0, 55, 80);
+    _music.loadSound("dbz", "assets/music_dbz.ogg");
     _background.setTextureAllocator(_alloc);
     _background.load("assets/Gbackground.png");
     _background.setSpritePosition(-600,0);
@@ -37,6 +37,10 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _score.setPosition(20, 20);
     _score.setFillColor(sf::Color::White);
     _score.setCharacterSize(30);
+    _spam.setFont(*text);
+    _spam.setFillColor(sf::Color::White);
+    _spam.setPosition(500, 500);
+    _spam.setCharacterSize(20);
     _bossBattle = false;
     _panel.setTextureAllocator(_alloc);
     _panel.setFontAllocator(_font);
@@ -91,8 +95,20 @@ void Game::update()
         _score.setString("0000" + std::to_string(_player.getFloor()));
     else
         _score.setString("000" + std::to_string(_player.getFloor()));
-    if (_player.getFloor() == 69)
+    if (_player.getFloor() == 69 && !_bossBattle) {
+        _start = std::chrono::steady_clock::now();
         _bossBattle = true;
+        _player.setSpriteScale(4, 4);
+        _player.load("kameha");
+    }
+    if (_bossBattle && _panel.checkClosed()) {
+        auto now = std::chrono::steady_clock::now();
+        auto dur = now - _start;
+        _spam.setString(std::to_string(_space));
+        if (dur >= std::chrono::milliseconds(8500) && _space >= 69) {
+            _space = 0;
+        }
+    }
 }
 
 bool Game::eventManager(Input n)
@@ -110,6 +126,9 @@ bool Game::eventManager(Input n)
         case Input::Right:
             _player.right();
             std::cout << "right" << std::endl;
+            return false;
+        case Input::Space:
+            _space++;
             return false;
 //        case Input::Down:
 //            _player.down();
@@ -148,8 +167,18 @@ void Game::draw(Window &win)
     _music.setLoop("dbz");
     win.draw(_score);
     if (_bossBattle) {
-        _panel.draw(win);
-        _panel.write(win);
+        if (!_panel.checkClosed()) {
+            _panel.draw(win);
+            _panel.write(win);
+            auto now = std::chrono::steady_clock::now();
+            auto dur = now - _start;
+            if (dur > std::chrono::seconds(10)) {
+                _panel.close();
+                _start = std::chrono::steady_clock::now();
+                _space = 0;
+            }
+        }
+        win.draw(_spam);
     }
 }
 
