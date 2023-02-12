@@ -7,8 +7,9 @@
 
 #include "../include/Player.hpp"
 
-Player::Player() : Sprite(500, 900)
+Player::Player() : Sprite(500, 300)
 {
+    _floor = 0;
     count_frame = 0;
     changeX = 0;
     changeY = 0;
@@ -36,20 +37,35 @@ void Player::moveRect()
 
 void Player::up()
 {
-    changePosition(getX(), getY() - 40);
+    if (getY() - 40 > 0)
+        changePosition(getX(), getY() - 40);
 }
 
 void Player::left()
 {
-    changePosition(getX() - 40, getY());
+    if (getX() - 40 > 0)
+        changePosition(getX() - 40, getY());
 }
 
 void Player::right()
 {
-    changePosition(getX() + 40, getY());
+    if (getX() + 40 < 1000)
+        changePosition(getX() + 40, getY());
 }
 
 void Player::down()
 {
-    changePosition(getX(), getY() + 40);
+    if (getY() + 40 < 950)
+        changePosition(getX(), getY() + 40);
+}
+
+void Player::setFloor(int floor, int y)
+{
+    _floor = floor;
+    changePosition(getX(), y);
+}
+
+int Player::getFloor() const
+{
+    return _floor;
 }
