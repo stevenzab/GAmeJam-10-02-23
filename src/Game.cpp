@@ -27,10 +27,10 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
         e.setSpriteScale(0.3, 0.3);
         e.load("assets/LIFE1.png");
     }
-//    for (int i = 0; i != 69; i++) {
-//        _layer.push_back(Layer(i));
-//        _layer[i].setTextureAllocator(_alloc);
-//    }
+    for (int i = 0; i != 69; i++) {
+        _layer.push_back(Layer(i));
+        _layer[i].setTextureAllocator(_alloc);
+    }
     std::shared_ptr<sf::Font> text = _font->Get("DungeonFont");
     _score.setString("00000");
     _score.setFont(*text);
@@ -95,11 +95,11 @@ void Game::update()
         _score.setString("0000" + std::to_string(_player.getFloor()));
     else
         _score.setString("000" + std::to_string(_player.getFloor()));
-    if (_player.getFloor() == 0 && !_bossBattle) {
+    if (_player.getFloor() == 69 && !_bossBattle) {
         _start = std::chrono::steady_clock::now();
         _bossBattle = true;
-//        _player.setSpriteScale(4, 4);
-//        _player.load("kameha");
+        _player.setSpriteScale(4, 4);
+        _player.load("kameha");
     }
     if (_bossBattle && _panel.checkClosed()) {
         auto now = std::chrono::steady_clock::now();
