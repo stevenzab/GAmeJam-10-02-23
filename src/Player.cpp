@@ -31,8 +31,8 @@ void Player::moveRect()
         count_frame = 0;
     else
         count_frame++;
-    setSpriteRect(count_frame * 51, 51, 80);
-    _sprite.setTextureRect(sf::IntRect(count_frame * 51, 0, 51, 80));
+    setSpriteRect(count_frame * 55, 55, 80);
+    _sprite.setTextureRect(sf::IntRect(count_frame * 55, 0, 55, 80));
 }
 
 void Player::up()

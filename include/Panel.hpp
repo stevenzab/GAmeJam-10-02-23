@@ -17,6 +17,8 @@ class Panel : public Sprite {
 
         void write(Window &win);
         void setFontAllocator(std::shared_ptr<ResourceAllocator<sf::Font>> font);
+        void close();
+        bool checkClosed() const;
 
     protected:
     private:
@@ -25,6 +27,7 @@ class Panel : public Sprite {
         sf::Text _text;
         sf::Text _text1;
         Sprite _juan;
+        bool _close;
 };
 
 #endif /* !PANEL_HPP_ */
