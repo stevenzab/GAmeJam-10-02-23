@@ -15,6 +15,7 @@ SRC	=		main.cpp	\
 			src/Game.cpp	\
 			src/Sprite.cpp	\
 			src/MenuBackground.cpp	\
+			src/Life.cpp	\
 			src/Button.cpp	\
 			src/Music.cpp	\
 			src/Sound.cpp	\

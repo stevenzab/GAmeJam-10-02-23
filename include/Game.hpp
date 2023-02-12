@@ -10,6 +10,7 @@
 #include "Sound.hpp"
 #include "Background.hpp"
 #include "bat.hpp"
+#include "Life.hpp"
 
 class Game : public IScene {
     public:
@@ -21,10 +22,14 @@ class Game : public IScene {
         sf::View getView() const;
         void setMouseClick(const std::pair<double, double> &vec);
         void draw(Window &win);
+        void CreateBat();
+        void LooseLife();
+        void CheckLoseLife();
 
     protected:
     private:
-        Bat _bat;
+        std::vector<Bat> _bat;
+        std::vector<Life> _life;
         Player _player;
         Background _background;
         sf::View _view;
@@ -33,6 +38,9 @@ class Game : public IScene {
         std::shared_ptr<ResourceAllocator<sf::Font>> _font;
         Music _music;
         Sound _sound;
+        bool _ispause;
+        int _health;
+        int stackHealth;
 };
 
 #endif /* !GAME_HPP_ */

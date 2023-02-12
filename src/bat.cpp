@@ -7,7 +7,7 @@
 
 #include "../include/bat.hpp"
 
-Bat::Bat() : Sprite(500, 500)
+Bat::Bat(int x, int y) : Sprite(x, y)
 {
     count_frame = 0;
     changeX = 0;
@@ -21,7 +21,8 @@ Bat::~Bat()
 void Bat::update()
 {
     // update Position
-
+    changePosition(getX() - 2, getY());
+    CheckHitBox(getX(), getY());
 }
 
 void Bat::moveRect()
@@ -32,4 +33,11 @@ void Bat::moveRect()
         count_frame++;
     setSpriteRect(count_frame * 320, 159, 1080);
     _sprite.setTextureRect(sf::IntRect(count_frame * 320, 0, 320, 159));
+}
+
+bool Bat::CheckHitBox(int x, int y)
+{
+    if (x >= getX() && x <= getX() && y >= getY() && y <= getY())
+        return true;
+    return false;
 }

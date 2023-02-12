@@ -16,9 +16,10 @@ class Player : public Sprite {
         ~Player();
         void update();
         void moveRect();
-        void jump();
+        void up();
         void left();
         void right();
+        void down();
 
     protected:
     private:
