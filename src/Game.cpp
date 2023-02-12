@@ -99,7 +99,7 @@ void Game::update()
         _start = std::chrono::steady_clock::now();
         _bossBattle = true;
         _player.setSpriteScale(4, 4);
-        _player.load("kameha");
+//        _player.load("kameha");
     }
     if (_bossBattle && _panel.checkClosed()) {
         auto now = std::chrono::steady_clock::now();
