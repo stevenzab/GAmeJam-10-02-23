@@ -13,6 +13,8 @@ Player::Player() : Sprite(500, 300)
     count_frame = 0;
     changeX = 0;
     changeY = 0;
+    shape.setSize(sf::Vector2f(51,51));
+    shape.setPosition(getX(),getY());
 }
 
 Player::~Player()
@@ -22,6 +24,7 @@ Player::~Player()
 void Player::update()
 {
     // update Position
+    shape.setPosition(getX(),getY());
 
 }
 

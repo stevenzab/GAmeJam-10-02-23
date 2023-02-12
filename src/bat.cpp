@@ -12,6 +12,8 @@ Bat::Bat(int x, int y) : Sprite(x, y)
     count_frame = 0;
     changeX = 0;
     changeY = 0;
+    shape.setSize(sf::Vector2f(0.2,0.2));
+    shape.setPosition(getX(),getY());
 }
 
 Bat::~Bat()
@@ -21,8 +23,9 @@ Bat::~Bat()
 void Bat::update()
 {
     // update Position
-    changePosition(getX(), getY() + 0.13);
+    changePosition(getX(), getY() + 0.1);
     CheckHitBox(getX(), getY());
+    shape.setPosition(getX(),getY());
 }
 
 void Bat::moveRect()

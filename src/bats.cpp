@@ -4,7 +4,7 @@
 void Bats::Batss() {
     std::vector<Bat> bats; // créer un vecteur de Bat
 
-    bats.push_back(Bat());
-    bats.push_back(Bat());
-    bats.push_back(Bat());
+    bats.push_back(Bat(0,0));
+    bats.push_back(Bat(0,0));
+    bats.push_back(Bat(0,0));
 }

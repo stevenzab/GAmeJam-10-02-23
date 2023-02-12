@@ -173,7 +173,8 @@ void Game::LooseLife()
 void Game::CheckLoseLife()
 {
     for (auto &e: _bat) {
-        if (e.CheckHitBox(_player.getX(), _player.getY()))
-            LooseLife();
+        if (e.getShape().getGlobalBounds().intersects(_player.getShape().getGlobalBounds())) {
+        std::cout << "HIT !" << std::endl;   // game.gameOver(); // lancer le game_over
+        }
     }
 }
