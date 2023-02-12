@@ -15,8 +15,11 @@ class Life : public Sprite {
         Life(int x, int y);
         ~Life();
 
+        int GetHealth();
+        void LoseLife();
     protected:
     private:
+        int _health;
 };
 
 #endif /* !LIFE_HPP_ */

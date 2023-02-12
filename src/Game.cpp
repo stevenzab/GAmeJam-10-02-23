@@ -67,6 +67,11 @@ void Game::update()
 
 bool Game::eventManager(Input n)
 {
+    // if (n == Input::MouseLeft && _ispause == true) {
+
+    //     return false;
+    // else ()
+    // }
     switch (n) {
         case Input::Up:
             _player.up();
@@ -113,4 +118,21 @@ void Game::draw(Window &win)
 
     _music.playSound("dbz", "assets/music_dbz.ogg");
     _music.setLoop("dbz");
+}
+
+void Game::LooseLife()
+{
+    stackHealth = 0;
+    for (auto &e: _life) {
+        stackHealth += e.GetHealth();
+    }
+    if (stackHealth == 0)
+        exit(0);
+    for (auto &e: _life) {
+        if (e.GetHealth() == 1) {
+            e.LoseLife();
+            e.load("assets/LIFE0.png");
+            break;
+        }
+    }
 }

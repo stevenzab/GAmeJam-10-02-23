@@ -23,6 +23,7 @@ class Game : public IScene {
         void setMouseClick(const std::pair<double, double> &vec);
         void draw(Window &win);
         void CreateBat();
+        void LooseLife();
 
     protected:
     private:
@@ -36,6 +37,9 @@ class Game : public IScene {
         std::shared_ptr<ResourceAllocator<sf::Font>> _font;
         Music _music;
         Sound _sound;
+        bool _ispause;
+        int _health;
+        int stackHealth;
 };
 
 #endif /* !GAME_HPP_ */
