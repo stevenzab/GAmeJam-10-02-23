@@ -27,10 +27,20 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
         e.setSpriteScale(0.3, 0.3);
         e.load("assets/LIFE1.png");
     }
-    for (int i = 0; i != 50; i++) {
+    for (int i = 0; i != 69; i++) {
         _layer.push_back(Layer(i));
         _layer[i].setTextureAllocator(_alloc);
     }
+    std::shared_ptr<sf::Font> text = _font->Get("DungeonFont");
+    _score.setString("00000");
+    _score.setFont(*text);
+    _score.setPosition(20, 20);
+    _score.setFillColor(sf::Color::White);
+    _score.setCharacterSize(30);
+    _bossBattle = false;
+    _panel.setTextureAllocator(_alloc);
+    _panel.setFontAllocator(_font);
+    _panel.load("panel");
 }
 
 Game::~Game()
@@ -70,7 +80,6 @@ void Game::update()
         if (e.getLayerNum() == _player.getFloor()) {
             std::pair<double, double> hole = e.getHole();
             int x = _player.getX();
-            std::cout << hole.first << " " << x << " " <<  hole.second << std::endl;
             if (x > hole.first && x < hole.second)
                 _player.setFloor(e.getLayerNum() + 1, e.getLayerY() + 5);
             else
@@ -78,6 +87,12 @@ void Game::update()
         }
         e.update();
     }
+    if (_player.getFloor() < 10)
+        _score.setString("0000" + std::to_string(_player.getFloor()));
+    else
+        _score.setString("000" + std::to_string(_player.getFloor()));
+    if (_player.getFloor() == 69)
+        _bossBattle = true;
 }
 
 bool Game::eventManager(Input n)
@@ -127,11 +142,15 @@ void Game::draw(Window &win)
 //        e.draw(win);
 //    }
 
-    for (auto &e : _layer) {
+    for (auto &e : _layer)
         e.draw(win);
-    }
     _music.playSound("dbz", "assets/music_dbz.ogg");
     _music.setLoop("dbz");
+    win.draw(_score);
+    if (_bossBattle) {
+        _panel.draw(win);
+        _panel.write(win);
+    }
 }
 
 void Game::LooseLife()

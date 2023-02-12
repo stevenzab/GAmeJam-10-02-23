@@ -12,6 +12,7 @@
 #include "bat.hpp"
 #include "Life.hpp"
 #include "Layer.hpp"
+#include "Panel.hpp"
 
 class Game : public IScene {
     public:
@@ -40,9 +41,12 @@ class Game : public IScene {
         std::shared_ptr<ResourceAllocator<sf::Font>> _font;
         Music _music;
         Sound _sound;
+        sf::Text _score;
         bool _ispause;
         int _health;
         int stackHealth;
+        bool _bossBattle;
+        Panel _panel;
 };
 
 #endif /* !GAME_HPP_ */
