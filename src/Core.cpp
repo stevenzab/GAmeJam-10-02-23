@@ -29,6 +29,8 @@ void Core::loadRessources()
     _alloc->Add("assets/platformRight.png");
     _alloc->Add("assets/platformMid.png");
     _alloc->Add("assets/void.png");
+    _alloc->Add("assets/panel.png");
+    _alloc->Add("assets/Wizard_idle.png");
     _font->Add("assets/DungeonFont.ttf");
 }
 

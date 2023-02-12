@@ -21,6 +21,7 @@ SRC	=		main.cpp	\
 			src/Sound.cpp	\
 			src/bat.cpp     \
 			src/Layer.cpp 	\
+			src/Panel.cpp	\
 
 NAME	=	GameJam
 

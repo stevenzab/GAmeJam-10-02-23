@@ -12,6 +12,7 @@
 #include "bat.hpp"
 #include "Life.hpp"
 #include "Layer.hpp"
+#include "Panel.hpp"
 
 class Game : public IScene {
     public:
@@ -44,6 +45,8 @@ class Game : public IScene {
         bool _ispause;
         int _health;
         int stackHealth;
+        bool _bossBattle;
+        Panel _panel;
 };
 
 #endif /* !GAME_HPP_ */
