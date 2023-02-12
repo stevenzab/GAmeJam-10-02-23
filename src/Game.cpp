@@ -15,7 +15,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
     _player.setSpriteRect(0, 55, 80);
-    _music.loadSound("dbz", "assets/music_dbz.ogg");
+    _music.loadSound("dbz", "assets/ost.ogg");
     _background.setTextureAllocator(_alloc);
     _background.load("assets/Gbackground.png");
     _background.setSpritePosition(-600,0);
@@ -49,7 +49,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
 
 Game::~Game()
 {
-    _music.stopSound("dbz", "assets/music_dbz.ogg");
+    _music.stopSound("dbz", "assets/ost.ogg");
 }
 
 void Game::CreateBat()
@@ -60,7 +60,7 @@ void Game::CreateBat()
         }
     }
 
-    _bat.push_back(Bat(1000, rand() % 1000 + 1));
+    _bat.push_back(Bat(rand() % 1000, 0));
     for (auto &e: _bat) {
         e.setTextureAllocator(_alloc);
         e.load("assets/bat.png");
@@ -201,7 +201,8 @@ void Game::LooseLife()
 void Game::CheckLoseLife()
 {
     for (auto &e: _bat) {
-        if (e.CheckHitBox(_player.getX(), _player.getY()))
-            LooseLife();
+        if (e.getShape().getGlobalBounds().intersects(_player.getShape().getGlobalBounds())) {
+        std::cout << "HIT !" << std::endl;   // game.gameOver(); // lancer le game_over
+        }
     }
 }
