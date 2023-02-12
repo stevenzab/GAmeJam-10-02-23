@@ -14,7 +14,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
-    _player.setSpriteRect(0, 51, 80);
+    _player.setSpriteRect(0, 55, 80);
     _music.loadSound("dbz", "assets/music_dbz.ogg");
     _background.setTextureAllocator(_alloc);
     _background.load("assets/Gbackground.png");
@@ -98,7 +98,7 @@ void Game::update()
     if (_player.getFloor() == 0 && !_bossBattle) {
         _start = std::chrono::steady_clock::now();
         _bossBattle = true;
-//        _player.setSpriteScale(2, 2);
+//        _player.setSpriteScale(4, 4);
 //        _player.load("kameha");
     }
     if (_bossBattle && _panel.checkClosed()) {
