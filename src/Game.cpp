@@ -14,7 +14,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
-    _player.setSpriteRect(20, 51, 80);
+    _player.setSpriteRect(0, 51, 80);
     _music.loadSound("dbz", "assets/music_dbz.ogg");
     _background.setTextureAllocator(_alloc);
     _background.load("assets/Gbackground.png");
@@ -37,6 +37,10 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _score.setPosition(20, 20);
     _score.setFillColor(sf::Color::White);
     _score.setCharacterSize(30);
+    _bossBattle = false;
+    _panel.setTextureAllocator(_alloc);
+    _panel.setFontAllocator(_font);
+    _panel.load("panel");
 }
 
 Game::~Game()
@@ -87,6 +91,8 @@ void Game::update()
         _score.setString("0000" + std::to_string(_player.getFloor()));
     else
         _score.setString("000" + std::to_string(_player.getFloor()));
+    if (_player.getFloor() == 69)
+        _bossBattle = true;
 }
 
 bool Game::eventManager(Input n)
@@ -140,6 +146,10 @@ void Game::draw(Window &win)
     _music.playSound("dbz", "assets/music_dbz.ogg");
     _music.setLoop("dbz");
     win.draw(_score);
+    if (_bossBattle) {
+        _panel.draw(win);
+        _panel.write(win);
+    }
 }
 
 void Game::LooseLife()

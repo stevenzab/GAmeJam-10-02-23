@@ -27,12 +27,12 @@ void Player::update()
 
 void Player::moveRect()
 {
-    if (count_frame == 8)
+    if (count_frame == 7)
         count_frame = 0;
     else
         count_frame++;
-    setSpriteRect(count_frame * 50, 51, 80);
-    _sprite.setTextureRect(sf::IntRect(count_frame * 50, 0, 51, 80));
+    setSpriteRect(count_frame * 51, 51, 80);
+    _sprite.setTextureRect(sf::IntRect(count_frame * 51, 0, 51, 80));
 }
 
 void Player::up()
