@@ -15,7 +15,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
     _player.setSpriteRect(0, 55, 80);
-    _music.loadSound("dbz", "assets/music_dbz.ogg");
+    _music.loadSound("dbz", "assets/ost.ogg");
     _background.setTextureAllocator(_alloc);
     _background.load("assets/Gbackground.png");
     _background.setSpritePosition(-600,0);
