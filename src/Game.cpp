@@ -14,8 +14,8 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
     _player.setTextureAllocator(_alloc);
     _player.load("assets/goku.png");
     _player.setSpritePosition(500, 505);
-    _player.setSpriteRect(20, 51, 80);
-    _music.loadSound("dbz", "assets/music_dbz.ogg");
+    _player.setSpriteRect(0, 51, 80);
+    _music.loadSound("dbz", "assets/ost.ogg");
     _background.setTextureAllocator(_alloc);
     _background.load("assets/Gbackground.png");
     _background.setSpritePosition(-600,0);
@@ -35,7 +35,7 @@ Game::Game(std::shared_ptr<ResourceAllocator<sf::Texture>> alloc, std::shared_pt
 
 Game::~Game()
 {
-    _music.stopSound("dbz", "assets/music_dbz.ogg");
+    _music.stopSound("dbz", "assets/ost.ogg");
 }
 
 void Game::CreateBat()
@@ -46,7 +46,7 @@ void Game::CreateBat()
         }
     }
 
-    _bat.push_back(Bat(1000, rand() % 1000 + 1));
+    _bat.push_back(Bat(rand() % 1000, 0));
     for (auto &e: _bat) {
         e.setTextureAllocator(_alloc);
         e.load("assets/bat.png");
@@ -119,9 +119,9 @@ void Game::draw(Window &win)
 {
     //draw stuff ob window
     _background.draw(win);
-//    for (auto &e: _bat) {
-//        e.draw(win);
-//    }
+   for (auto &e: _bat) {
+       e.draw(win);
+   }
     _player.draw(win);
 //    for (auto &e: _life) {
 //        e.draw(win);

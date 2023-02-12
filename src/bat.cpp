@@ -21,7 +21,7 @@ Bat::~Bat()
 void Bat::update()
 {
     // update Position
-    changePosition(getX() - 2, getY());
+    changePosition(getX(), getY() + 0.13);
     CheckHitBox(getX(), getY());
 }
 
