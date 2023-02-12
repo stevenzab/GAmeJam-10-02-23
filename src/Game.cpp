@@ -128,13 +128,12 @@ void Game::draw(Window &win)
 {
     //draw stuff ob window
     _background.draw(win);
+    for (auto &e: _life)
+        e.draw(win);
 //    for (auto &e: _bat) {
 //        e.draw(win);
 //    }
     _player.draw(win);
-//    for (auto &e: _life) {
-//        e.draw(win);
-//    }
 
     for (auto &e : _layer)
         e.draw(win);
