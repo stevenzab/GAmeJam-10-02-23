@@ -24,6 +24,7 @@ class Game : public IScene {
         void draw(Window &win);
         void CreateBat();
         void LooseLife();
+        void CheckLoseLife();
 
     protected:
     private:

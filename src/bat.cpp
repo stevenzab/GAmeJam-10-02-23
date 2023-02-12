@@ -37,7 +37,7 @@ void Bat::moveRect()
 
 bool Bat::CheckHitBox(int x, int y)
 {
-    if (x >= getX() && x <= getX() + 50 && y >= getY() && y <= getY() + 50)
+    if (x >= getX() && x <= getX() && y >= getY() && y <= getY())
         return true;
     return false;
 }
